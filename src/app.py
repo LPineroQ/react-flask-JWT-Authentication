@@ -10,7 +10,7 @@ from api.utils import APIException, generate_sitemap
 from api.models import db
 from api.routes import api
 from api.admin import setup_admin
-#from models import Person
+from flask_jwt_extended import JWTManager
 
 ENV = os.getenv("FLASK_ENV")
 static_file_dir = os.path.join(os.path.dirname(os.path.realpath(__file__)), '../public/')
@@ -25,8 +25,11 @@ else:
     app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:////tmp/test.db"
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config["JWT_SECRET_KEY"] = os.environ.get("JWT_KEY")
+
 MIGRATE = Migrate(app, db, compare_type = True)
 db.init_app(app)
+jwt = JWTManager(app)
 
 # Allow CORS requests to this API
 CORS(app)
