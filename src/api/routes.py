@@ -15,8 +15,8 @@ def encryp_pass(password):
 def compare_pass(password, hash_pass):
     return bcrypt.checkpw(password.encode('utf-8'), hash_pass.encode('utf-8'))
 
-@api.route('/signup', methods=['POST'])
-def create_user():
+@api.route("/signup", methods=["POST"])
+def register_user():
     body = request.get_json()
     hash_pass = encryp_pass(body['password'])
     new_user = User(email=body["email"], password=hash_pass, is_active=True)
@@ -43,7 +43,8 @@ def login_user():
     user = db.session.query(User).filter(User.email == body['email']).first()
     if user is None:
         token = 'user not exist'
-           validate_pass = compare_pass(body['password'], user.password)
+
+    validate_pass = compare_pass(body['password'], user.password)
     if validate_pass == False:
         token = 'pass not iqual'
 
@@ -53,7 +54,7 @@ def login_user():
     if token == 'user not exist':
         return jsonify(token), 404
     elif token == 'pass not iqual':
-        return jsonify('password incorrect'), 401
+        return jsonify('user or password incorrect'), 401
     elif token is None :
         return jsonify('Internal server error'), 500
     else:
