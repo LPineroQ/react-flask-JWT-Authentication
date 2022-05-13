@@ -7,6 +7,7 @@ const Account = () => {
       <div className="text-light mt-3">
         <h2>Estás en tu cuenta</h2>
         <p>Aquí está tu regalo de bienvenida:</p>
+        <i class="fas fa-poo"></i>
       </div>
     </div>
   ) : (
