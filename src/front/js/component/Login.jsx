@@ -30,7 +30,7 @@ const Login = () => {
 
   return (
     <div className="login col-4 m-auto">
-      <h1 className="mt-3 mb-3">Login</h1>
+      <h1 className="mt-3 mb-3">Accede aquí</h1>
       <form className="row g-3 d-flex flex-column" onSubmit={userLogin}>
         <div className="col-auto">
           <label className="mb-3">Email</label>
@@ -43,18 +43,18 @@ const Login = () => {
           />
         </div>
         <div className="col-auto">
-          <label className="mb-3">Password</label>
+          <label className="mb-3">Contraseña</label>
           <input
             type="password"
             className="form-control"
             id="inputPassword2"
-            placeholder="Password"
+            placeholder="Contraseña"
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
         <div className="col-auto">
           <button type="submit" className="btn btn-primary mb-3">
-            Login
+            Acceder
           </button>
         </div>
       </form>

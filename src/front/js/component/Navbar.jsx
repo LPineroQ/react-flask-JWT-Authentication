@@ -19,11 +19,11 @@ export const Navbar = () => {
     <nav className="navbar navbar-light bg-light">
       <div className="container">
         <Link to="/">
-          <span className="navbar-brand mb-0 h1">JWT Authentication</span>
+          <span className="navbar-brand mb-0 h1">Elige una acción --></span>
         </Link>
         <div className="ml-auto">
           <Link to="/signup">
-            <button className="btn btn-primary me-3">Regístrate</button>
+            <button className="btn btn-primary me-3">Nuevo Usuario</button>
           </Link>
           {store.logged ? (
             <button className="btn btn-primary" onClick={handleClick}>

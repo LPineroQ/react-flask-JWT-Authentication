@@ -27,8 +27,8 @@ const Signup = () => {
 
   return (
     <div className="signup col-4 mx-auto mt-3">
-      <h1 className="mt-3 mb-3">Sign up</h1>
-      <form onSubmit={handleSubmit}>
+      <h1 className="mt-3 mb-3">Regístrate</h1>
+      <form className="row g-3 d-flex flex-column" onSubmit={handleSubmit}>
         <div className="mb-3">
           <label htmlFor="exampleFormControlInput1" className="form-label">
             Email address
@@ -42,11 +42,9 @@ const Signup = () => {
             onChange={handleChange}
           />
         </div>
-        <div className="mb-3 row justify-content-between">
-          <label htmlFor="inputPassword" className="col-sm-2 col-form-label">
-            Password
-          </label>
-          <div className="col-sm-9">
+        <div className="col-auto">
+          <label className="mb-3">Contraseña</label>
+          <div className="col-sm-12">
             <input
               type="password"
               name="password"
